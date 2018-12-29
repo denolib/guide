@@ -2,7 +2,14 @@
 
 ## What is this?
 
-This is a guide to the design and structure of Deno, a secure server-side TypeScript runtime, created and maintained by some contributors to Deno.
+This is a guide to the design and structure of Deno, a secure server-side TypeScript runtime.
+
+This guide is created and maintained by some contributors to Deno.
+
+### Authors
+
+1. [@kevinkassimo](https://github.com/kevinkassimo)
+2. [@monkingxue](https://github.com/monkingxue)
 
 ## DISCLAIMER
 
