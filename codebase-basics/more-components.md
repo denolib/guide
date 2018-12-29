@@ -2,6 +2,12 @@
 
 In this section, we will be briefly discuss about other important components which are relied by Deno.
 
+## V8
+
+V8 is a JavaScript/WebAssembly engine by Google. Written in C++, it is also used most notably in Google Chrome and Node.js.
+
+V8 does not support TypeScript. Instead, all TypeScript code you run in Deno are compiled to JavaScript by a snapshotted TS compiler, while the generated files are stored under `.deno` folder. Unless the user updates the code, only the cached JS files would be run after the initial compilation.
+
 ## FlatBuffers
 
 [Flatbuffers](https://google.github.io/flatbuffers/) is an efficient cross platform serialization library, developed by Google. Flatbuffers allows messages to be passed and accessed across languages without the overhead of parsing and unpacking.
