@@ -119,5 +119,5 @@ The `deno_respond` is called by the `recv_cb_` and will be distinguished between
 
 ## Rust executor
 
-
+The journey of the function call comes to the last station. The Rust code maps the type of function call to the corresponding handler and handles synchronous and asynchronous calls based on event-loop. For details on event-loop, see [the next section](https://denolib.gitbook.io/guide/~/drafts/-LUtyQuHAr1yFSGlQdF7/primary/advanced/process-lifecycle#isolate-event_loop).
 
