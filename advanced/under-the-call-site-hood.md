@@ -58,6 +58,8 @@ Let's take a look at how C++ consumes received messages.
 Note: The following is pseudo `libdeno.send` code, just for the sake of easy understanding, the actual code is not like this.
 
 ```cpp
+// libdeno/binding.cc
+
 void Send(const pseudo::Args args) {
   // get the call inforamtion, such as function name etc.
   pseudo::Value control = args[0];
@@ -76,5 +78,49 @@ void Send(const pseudo::Args args) {
 }
 ```
 
-The `Send` function get args and invoke the `recv_cb_`, 
+The `Send` function get args and invoke the `recv_cb_` . Notice the `recv_cb_` function here, which is defined in the Rust code.
+
+The return value of the `libdeno.send` function will be set by `deno_respond`:
+
+```cpp
+// libdeno/api.cc
+
+int deno_respond(DenoIsolate* d, int32_t req_id, deno_buf buf) {
+  // Synchronous response.
+  if (d->current_args_ != nullptr) {
+    // get return value as Uint8Array
+    auto ab = deno::ImportBuf(d, buf);
+    // set return value
+    d->current_args_->GetReturnValue().Set(ab);
+    d->current_args_ = nullptr;
+    return 0;
+  }
+
+  // Asynchronous response.
+  
+  auto recv_ = d->recv_.Get(d->isolate_);
+  if (recv_.IsEmpty()) {
+    d->last_exception_ = "libdeno.recv_ has not been called.";
+    return 1;
+  }
+
+  v8::Local<v8::Value> args[1];
+  args[0] = deno::ImportBuf(d, buf);
+  auto v = recv_->Call(context, context->Global(), 1, args);
+
+  if (try_catch.HasCaught()) {
+    CHECK(v.IsEmpty());
+    deno::HandleException(context, try_catch.Exception());
+    return 1;
+  }
+
+  return 0;
+}
+```
+
+
+
+## Rust executor
+
+
 
