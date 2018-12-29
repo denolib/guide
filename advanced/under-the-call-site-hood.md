@@ -30,16 +30,28 @@ The above code is very simple and straightforward, but how does Typescript read 
 In fact, the Deno APIs that need to use system calls are converted to messaging process like the following:
 
 ```typescript
-export function readFileSync(filename: string): Uint8Array {
+function readFileSync(filename: string): Uint8Array {
   return res(dispatch.sendSync(...req(filename)));
 }
 
-export async function readFile(filename: string): Promise<Uint8Array> {
+async function readFile(filename: string): Promise<Uint8Array> {
   return res(await dispatch.sendAsync(...req(filename)));
 }
 ```
 
-Both the `sendSync` and `sendAsync` methods call the `libdeno.send` method on the underlying, and this method is a C++ binding function injected by V8. After this processing, the function call information is passed to C++. Let's take a look at how C++ consumes received messages.
+Both the `sendSync` and `sendAsync` methods call the `libdeno.send` method on the underlying, and this method is a C++ binding function injected by V8. After this processing, the function call information is passed to C++. 
+
+In addition to dispatching messages, TypeScript end also needs to register a callback function to get the asynchronous result sent back from the Rust side:
+
+```typescript
+// js/main.ts denoMain()
+
+libdeno.recv(handleAsyncMsgFromRust);
+```
+
+`libdeno.recv` is also a binding function injected in V8 to register callback for receiving messages. For details on this function, please refer to [the next section](https://denolib.gitbook.io/guide/~/drafts/-LUtKIIrxNaQMXGyMSgw/primary/advanced/process-lifecycle#rust-main-entry-point).
+
+Let's take a look at how C++ consumes received messages.
 
 ## C++ converter
 
@@ -64,5 +76,5 @@ void Send(const pseudo::Args args) {
 }
 ```
 
-test
+The `Send` function get args and invoke the `recv_cb_`, 
 
