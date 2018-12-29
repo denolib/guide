@@ -24,5 +24,3 @@ For those who are not familiar with the language, Rust is a systems programming 
 
 The Rust backend is migrated from Go, which served to create the original Deno prototype present in June 2018. Reasons for the switch is due to concerns about double GC. Read more in [this thread](https://github.com/denoland/deno/issues/205).
 
-
-

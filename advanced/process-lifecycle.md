@@ -1,7 +1,3 @@
----
-description: 'In this section, we will probe into the lifecycle of a Deno process.'
----
-
 # Process Lifecycle
 
 ## Rust main\(\) Entry Point

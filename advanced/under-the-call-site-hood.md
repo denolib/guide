@@ -18,7 +18,7 @@ import * as deno from "deno";
 async function readFileTest() {
   // Read file asynchronously
   const data1 = await deno.readFile("test.json");
-  
+
   // Read file synchronously
   // Note that we don't need `await` keyword.
   const data2 = deno.readFile("test.json");
@@ -53,16 +53,16 @@ void Send(const pseudo::Args args) {
   pseudo::Value data;
   // get the request id
   int32_t req_id = isolate->next_req_id_++;
-  
+
   if (args.Length() == 2) {
     data = args[1];
   }
-  
+
   isolate->current_args_ = &args;
 
   isolate->recv_cb_(req_id, control, data);
 }
 ```
 
-
+test
 

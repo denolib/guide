@@ -1,7 +1,3 @@
----
-description: A guide to understanding structure and design of Deno
----
-
 # A Guide to Deno Core
 
 ## What is this?
