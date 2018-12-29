@@ -78,7 +78,7 @@ export default function denoMain() {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-First, we tell `libdeno`, which is the exposed API from the middle-end, that whenever there is a message sent from the Rust side, please forward the buffer to a function called `handleAsyncMsgFromRust`. Then, a `Start` message is sent to Rust side, signaling that we are starting and receiving information including the current working directory, or `cwd`. We then decide whether the user is running a script, or using the REPL. If we have an input file name, Deno would then try to let the `runner`, which contains the TypeScript `compiler`, to try running the file. `denoMain` only exits when the `runner` finish running the file.
+First, we tell `libdeno`, which is the exposed API from the middle-end, that whenever there is a message sent from the Rust side, please forward the buffer to a function called `handleAsyncMsgFromRust`. Then, a `Start` message is sent to Rust side, signaling that we are starting and receiving information including the current working directory, or `cwd`. We then decide whether the user is running a script, or using the REPL. If we have an input file name, Deno would then try to let the `runner`, which contains the TypeScript `compiler`, to try running the file \(going deep into its definition, you'll eventually find a secret `eval/globalEval` called somewhere\). `denoMain` only exits when the `runner` finish running the file.
 
 ## isolate.event\_loop\(\)
 
