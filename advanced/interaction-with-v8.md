@@ -103,7 +103,7 @@ From these two functions, we would find that `deno_init` is used to initialize t
 
 ## Adding Bindings
 
-There are 2 important functions/constructors used in `deno_new` that might not be immediately clear: `DenoIsolate` and `InitializeContext`. It turns out `DenoIsolate` serves more or less as a collection of Isolate information. Instead, `InitializeContext` is the more interesting one. \(invoked only when there is no snapshot provided, since the context of snapshot has already being initialized. In fact, you'll also find the function being used in `deno_new_snapshotter` in `libdeno/api.cc` to create a new snapshot\):
+There are 2 important functions/constructors used in `deno_new` that might not be immediately clear: `DenoIsolate` and `InitializeContext`. It turns out `DenoIsolate` serves more or less as a collection of Isolate information. Instead, `InitializeContext` is the more interesting one. \(It seems to be invoked here only when there is no snapshot provided. However, you'll also find the function being used in `deno_new_snapshotter` in `libdeno/api.cc` to create a new snapshot, so it is always an inevitable step\):
 
 {% code-tabs %}
 {% code-tabs-item title="libdeno/binding.cc" %}
