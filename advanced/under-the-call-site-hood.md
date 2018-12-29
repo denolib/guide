@@ -78,12 +78,13 @@ void Send(const pseudo::Args args) {
 }
 ```
 
-The `Send` function get args and invoke the `recv_cb_` . Notice the `recv_cb_` function here, which is defined in the Rust code.
+The `Send` function get args and invoke the `recv_cb_` . Notice that the `recv_cb_`  is defined in the Rust code.
 
-The return value of the `libdeno.send` function will be set by `deno_respond`:
+The return value of the `libdeno.send`  will be set by `deno_respond`:
 
 ```cpp
 // libdeno/api.cc
+// it's also pseudo code
 
 int deno_respond(DenoIsolate* d, int32_t req_id, deno_buf buf) {
   // Synchronous response.
@@ -114,7 +115,7 @@ int deno_respond(DenoIsolate* d, int32_t req_id, deno_buf buf) {
 }
 ```
 
-
+The `deno_respond` is called by the `recv_cb_` and will be distinguished between synchronous and asynchronous when executed. When the call is synchronous, `deno_respond` returns the result directly. And when the call is asynchronously, the function is triggered asynchronously and calls the callback function defined in TypeScript.
 
 ## Rust executor
 
