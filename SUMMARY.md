@@ -1,7 +1,7 @@
 # Table of contents
 
 * [A Guide to Deno Core](README.md)
-* [Installing Deno](installing.md)
+* [Installing Deno](installing-deno.md)
 * [Contribution Guide](contributing-guide.md)
 
 ## Codebase Basics
