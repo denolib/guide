@@ -97,22 +97,18 @@ int deno_respond(DenoIsolate* d, int32_t req_id, deno_buf buf) {
   }
 
   // Asynchronous response.
-  
+  // get receive callback function defined in TypeScript
   auto recv_ = d->recv_.Get(d->isolate_);
   if (recv_.IsEmpty()) {
     d->last_exception_ = "libdeno.recv_ has not been called.";
     return 1;
   }
 
-  v8::Local<v8::Value> args[1];
+  pseudo::Value args[1];
+  // get return value as Uint8Array
   args[0] = deno::ImportBuf(d, buf);
+  // call the TypeScript function
   auto v = recv_->Call(context, context->Global(), 1, args);
-
-  if (try_catch.HasCaught()) {
-    CHECK(v.IsEmpty());
-    deno::HandleException(context, try_catch.Exception());
-    return 1;
-  }
 
   return 0;
 }
