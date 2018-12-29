@@ -4,7 +4,7 @@ In this section, we will be briefly discuss about other important components whi
 
 ## V8
 
-V8 is a JavaScript/WebAssembly engine by Google. Written in C++, it is also used most notably in Google Chrome and Node.js.
+[V8](https://v8.dev/) is a JavaScript/WebAssembly engine by Google. Written in C++, it is also used most notably in Google Chrome and Node.js.
 
 V8 does not support TypeScript. Instead, all TypeScript code you run in Deno are compiled to JavaScript by a snapshotted TS compiler, while the generated files are stored under `.deno` folder. Unless the user updates the code, only the cached JS files would be run after the initial compilation.
 
