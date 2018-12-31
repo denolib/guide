@@ -16,4 +16,5 @@
 * [Under the call site's hood](advanced/under-the-call-site-hood.md)
 * [Process Lifecycle](advanced/process-lifecycle.md)
 * [Interaction with V8](advanced/interaction-with-v8.md)
+* [DENO\_DIR, Code Fetch and Cache](advanced/deno_dir-code-fetch-and-cache.md)
 
