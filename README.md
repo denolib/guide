@@ -15,7 +15,7 @@ This guide is created and maintained by some contributors to Deno.
 
 If you are not familiar with Deno yet, we recommend checking out the following resources:
 
-1. [10 Things I Regret About Node.js - Ryan Dahl - JSConf EU 2018](https://www.youtube.com/watch?v=M3BM9TB-8yA&t=1421s)
+1. [10 Things I Regret About Node.js - Ryan Dahl - JSConf EU 2018](https://www.youtube.com/watch?v=M3BM9TB-8yA)
 2. [JSDC 2018\#A01 - Deno, A New Server-Side Runtime By Ryan Dahl](https://www.youtube.com/watch?v=FlTG0UXRAkE)
 3. [Official Deno Documentation](https://github.com/denoland/deno/blob/master/Docs.md)
 
