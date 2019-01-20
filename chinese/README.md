@@ -1,4 +1,4 @@
-# Deno Core指南
+# Deno Core 指南
 
 ## 这是什么？
 
