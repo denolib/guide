@@ -10,7 +10,10 @@ This guide is created and maintained by some contributors to Deno.
 
 1. [@kevinkassimo](https://github.com/kevinkassimo)
 2. [@monkingxue](https://github.com/monkingxue)
-3. [@caijw](https://github.com/caijw)
+
+### Translation
+1. [Chinese](https://github.com/denolib/guide/tree/master/chinese)
+  + By [@caijw](https://github.com/caijw)
 
 ## Before You Start
 
@@ -25,7 +28,3 @@ If you are not familiar with Deno yet, we recommend checking out the following r
 **THIS IS NOT AN OFFICIAL DOCUMENT.**
 
 This document has no affiliation with the `denoland` organization and its collaborators.
-
-## Languages Support
-- [English](https://github.com/denolib/guide)
-- [Chinese](https://github.com/denolib/guide/tree/master/chinese)
