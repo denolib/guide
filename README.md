@@ -28,9 +28,4 @@ This document has no affiliation with the `denoland` organization and its collab
 
 ## Languages Support
 - [English](https://github.com/denolib/guide)
-- [Chinese](https://github.com/denolib/guide/chinese)
-
-
-
-
-
+- [Chinese](https://github.com/denolib/guide/tree/master/chinese)
