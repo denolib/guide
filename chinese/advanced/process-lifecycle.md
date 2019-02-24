@@ -203,11 +203,11 @@ const dec = new TextDecoder();
 
 (async () => {
     // 打印 "A"
-    console.log(await deno.readFile('a.c');
+    console.log(dec.decode(await deno.readFile('a.c')));
     // 打印 "B"
     console.log(dec.decode(deno.readFileSync('b.c')));
     // 打印 "C"
-    console.log(await deno.readFile('c.c');
+    console.log(dec.decode(await deno.readFile('c.c')));
 })();
 
 // 打印 "D"

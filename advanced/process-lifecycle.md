@@ -200,11 +200,11 @@ const dec = new TextDecoder();
 
 (async () => {
     // prints "A"
-    console.log(await deno.readFile('a.c');
+    console.log(dec.decode(await deno.readFile('a.c')));
     // prints "B"
     console.log(dec.decode(deno.readFileSync('b.c')));
     // prints "C"
-    console.log(await deno.readFile('c.c');
+    console.log(dec.decode(await deno.readFile('c.c')));
 })();
 
 // prints "D"
